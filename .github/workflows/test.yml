@@ -1,4 +1,4 @@
-name: Python application
+name: Pytest and Linter
 
 on:
   push:
