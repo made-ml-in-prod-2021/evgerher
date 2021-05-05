@@ -90,7 +90,7 @@ def create_model(model_config: ModelConfig) -> SklearnClassificationModel:
     return RandomForestClassifier(**model_config.model_args)
   elif model_config.model_type is ModelType.SVC:
     return SVC(**model_config.model_args)
-  elif model_config.model_type is ModelType.MLPClassifier:
+  elif model_config.model_type is ModelType.MLP_CLASSIFIER:
     return MLPClassifier(**model_config.model_args)
   else:
     raise NotImplementedError('Unknown model type', model_config.model_type)

@@ -19,5 +19,5 @@ class NormalizationPolicy(Enum):
 class ModelType(Enum):
   RANDOM_FOREST = 'random_forest'
   SVC = 'svc'
-  MLPClassifier = 'mlp_classifier'
+  MLP_CLASSIFIER = 'mlp_classifier'
 

@@ -43,20 +43,27 @@ def build_normalization_pipeline(policy: NormalizationPolicy) -> Pipeline:
   return pipeline
 
 
-def build_pipeline(feature_config: FeatureConfig) -> Pipeline:
+def build_column_transformer(feature_config: FeatureConfig) -> ColumnTransformer:
   column_transformer = ColumnTransformer(
     [
       (
         'categorical',
         build_categorical_pipeline(feature_config.categorical_policy),
-        feature_config.categorical_columns),
+        feature_config.categorical_columns
+      ),
       (
         'numeric',
-         build_numeric_pipeline(),
-         feature_config.numeric_columns
+        build_numeric_pipeline(),
+        feature_config.numeric_columns
       )
     ]
   )
+
+  return column_transformer
+
+
+def build_pipeline(feature_config: FeatureConfig) -> Pipeline:
+  column_transformer = build_column_transformer(feature_config)
 
   pipeline = Pipeline(
     [
