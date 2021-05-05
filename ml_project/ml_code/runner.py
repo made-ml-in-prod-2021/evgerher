@@ -68,8 +68,7 @@ def parse_args():
   inference_parser.add_argument('--proba',
                                 required=False,
                                 default=False,
-                                type=bool,
-                                metavar='true/false',
+                                action='store_true',
                                 help='Whether to return probabilities or not')
   # todo: do I need an initial yaml file to handle an order of features when dealing with pandas?
   inference_parser.set_defaults(callback=inference_callback)

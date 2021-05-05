@@ -25,4 +25,5 @@ def split_data(params: SplitConfig, df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.
 
 
 def write_results(result: pd.Series, path: str):
-  result.to_csv(path)
+  logger.info('Writing results to: %s', path)
+  result.to_csv(path, index=False, header=False)

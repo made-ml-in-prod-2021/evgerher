@@ -59,6 +59,7 @@ target/
 # DotEnv configuration
 .env
 *.pkl
+*.csv
 
 # Database
 *.db

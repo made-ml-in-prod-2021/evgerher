@@ -11,7 +11,7 @@ logger = logging.getLogger('runner')
 
 def inference_model(artifact: SerializableArtifact,
                     data: pd.DataFrame,
-                    proba: bool = False) -> pd.Series:
+                    proba: bool) -> pd.Series:
   logger.info('Initiate inference, proba: %s', proba)
   model: SklearnClassificationModel = artifact.model
   pipeline: Pipeline = artifact.pipeline
@@ -23,7 +23,7 @@ def inference_model(artifact: SerializableArtifact,
 
   X = pipeline.transform(data)
   if proba:
-    out = model.predict_proba(X)
+    out = model.predict_proba(X)[:, 1]
   else:
     out = model.predict(X)
 
