@@ -14,21 +14,21 @@ logger = logging.getLogger('runner')
 
 
 @dataclass
-class SerializableArtifact:
+class Artifact:
   model: SklearnClassificationModel
   pipeline: Pipeline
   stats: Optional[Dict[str, float]]
 
 
-def dump_artifact(artifact: SerializableArtifact, path: str):
+def dump_artifact(artifact: Artifact, path: str):
   logger.info('Dumping artifact to %s', path)
   with open(path, 'wb') as fw:
     pickle.dump(artifact, fw)
 
 
-def load_artifact(path: str) -> SerializableArtifact:
+def load_artifact(path: str) -> Artifact:
   logger.info('Loading artifact from %s', path)
   with open(path, 'rb') as fr:
     artifact = pickle.load(fr)
-    assert isinstance(artifact, SerializableArtifact), 'Loaded object type invalid'
+    assert isinstance(artifact, Artifact), 'Loaded object type invalid'
     return artifact

@@ -9,7 +9,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import roc_auc_score, accuracy_score, precision_score, recall_score, f1_score
 import pandas as pd
 
-from .io_utils import SerializableArtifact, SklearnClassificationModel
+from .io_utils import Artifact, SklearnClassificationModel
 from ml_code.data import read_data, split_data
 from ml_code.features import build_pipeline, convert_features, extract_target, fit_pipeline
 from ml_code.utils import PipelineConfig, ModelConfig, ModelType, FeatureConfig, SplitConfig
@@ -96,7 +96,7 @@ def create_model(model_config: ModelConfig) -> SklearnClassificationModel:
     raise NotImplementedError('Unknown model type', model_config.model_type)
 
 
-def train_model(config: PipelineConfig) -> SerializableArtifact:
+def train_model(config: PipelineConfig) -> Artifact:
   model, pipeline = create_artifact(config.model_config, config.feature_config)
 
   data: pd.DataFrame = read_data(config.data_path)
@@ -125,7 +125,7 @@ def train_model(config: PipelineConfig) -> SerializableArtifact:
   if split_config.folds:
     results.update(cv_results)
 
-  return SerializableArtifact(model, pipeline, results)
+  return Artifact(model, pipeline, results)
 
 
 def create_artifact(model_config: ModelConfig,

@@ -3,13 +3,13 @@ import logging
 import pandas as pd
 from sklearn.pipeline import Pipeline
 
-from .io_utils import SerializableArtifact, SklearnClassificationModel
+from .io_utils import Artifact, SklearnClassificationModel
 
 
 logger = logging.getLogger('runner')
 
 
-def inference_model(artifact: SerializableArtifact,
+def inference_model(artifact: Artifact,
                     data: pd.DataFrame,
                     proba: bool) -> pd.Series:
   logger.info('Initiate inference, proba: %s', proba)

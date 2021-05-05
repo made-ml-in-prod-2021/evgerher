@@ -32,7 +32,7 @@ It is a binary format for:
 ## Inference
 
 You may run an inference with next command:
-`python ml_code/runner.py inference --model models/rf_artifact.pkl --data data/inference.csv --output rf_result.csv --proba true `
+`python ml_code/runner.py inference --model models/rf_artifact.pkl --data data/inference.csv --output rf_result.csv --proba`
 
 - Data file is expected to be `csv` format without `target` column.  
 - The order of features is expected to be the same as during training (otherwise not tested)  
@@ -43,3 +43,7 @@ You may run an inference with next command:
 
 1) Take a look on examples in `configs/`  
 2) Consider the strict rules of allowed models within `ml_code/utils/enums.py` and `ml_code/utils/config.py`  
+
+## Tests
+
+Run tests via `python -m pytest tests/`  
