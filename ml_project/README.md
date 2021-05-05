@@ -46,4 +46,4 @@ You may run an inference with next command:
 
 ## Tests
 
-Run tests via `python -m pytest tests/`  
+Run tests via `python -m pytest -v --cov .`  

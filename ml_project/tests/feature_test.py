@@ -108,4 +108,3 @@ def test_frequency_encoder_dataframe(sample_data):
       value_mapped = freqs[value]
       value_found = column_after.loc[idx]
       assert np.isclose(value_found, value_mapped), 'The mapping is invalid'
-
