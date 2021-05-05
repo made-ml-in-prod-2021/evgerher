@@ -1,6 +1,6 @@
 ml_project
 ==============================
-![Pytest and Linter](https://github.com/made-ml-in-prod-2021/evgerher/workflows/Pytest%20and%20Linter/badge.svg)
+[![Pytest and Linter](https://github.com/made-ml-in-prod-2021/evgerher/actions/workflows/test.yml/badge.svg)](https://github.com/made-ml-in-prod-2021/evgerher/actions/workflows/test.yml)  
 
 Dataset is taken from https://www.kaggle.com/ronitf/heart-disease-uci   
 `kaggle datasets download -d ronitf/heart-disease-uci`  
