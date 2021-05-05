@@ -44,6 +44,7 @@ You may run an inference with next command:
 1) Take a look on examples in `configs/`  
 2) Consider the strict rules of allowed models within `ml_code/utils/enums.py` and `ml_code/utils/config.py`  
 
-## Tests
+## Tests and linter
 
 Run tests via `python -m pytest -v --cov .`  
+Run linter via `pylint --rcfile=linter.rc ml_code/`

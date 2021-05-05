@@ -9,10 +9,10 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import roc_auc_score, accuracy_score, precision_score, recall_score, f1_score
 import pandas as pd
 
-from .io_utils import Artifact, SklearnClassificationModel
 from ml_code.data import read_data, split_data
 from ml_code.features import build_pipeline, convert_features, extract_target, fit_pipeline
 from ml_code.utils import PipelineConfig, ModelConfig, ModelType, FeatureConfig, SplitConfig
+from .io_utils import Artifact, SklearnClassificationModel
 
 logger = logging.getLogger('runner')
 
@@ -92,8 +92,7 @@ def create_model(model_config: ModelConfig) -> SklearnClassificationModel:
     return SVC(**model_config.model_args)
   elif model_config.model_type is ModelType.MLP_CLASSIFIER:
     return MLPClassifier(**model_config.model_args)
-  else:
-    raise NotImplementedError('Unknown model type', model_config.model_type)
+  raise NotImplementedError('Unknown model type', model_config.model_type)
 
 
 def train_model(config: PipelineConfig) -> Artifact:
@@ -131,7 +130,9 @@ def train_model(config: PipelineConfig) -> Artifact:
 def create_artifact(model_config: ModelConfig,
                     feature_config: FeatureConfig) -> Tuple[SklearnClassificationModel, Pipeline]:
   model: SklearnClassificationModel = create_model(model_config)
-  logger.info('Loaded model type %s with args %s', model_config.model_type.value, model_config.model_args)
+  logger.info('Loaded model type %s with args %s',
+              model_config.model_type.value,
+              model_config.model_args)
 
   pipeline: Pipeline = build_pipeline(feature_config)
   logger.info('Loaded pipeline')

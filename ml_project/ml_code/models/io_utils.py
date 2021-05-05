@@ -22,13 +22,13 @@ class Artifact:
 
 def dump_artifact(artifact: Artifact, path: str):
   logger.info('Dumping artifact to %s', path)
-  with open(path, 'wb') as fw:
-    pickle.dump(artifact, fw)
+  with open(path, 'wb') as fwrite:
+    pickle.dump(artifact, fwrite)
 
 
 def load_artifact(path: str) -> Artifact:
   logger.info('Loading artifact from %s', path)
-  with open(path, 'rb') as fr:
-    artifact = pickle.load(fr)
+  with open(path, 'rb') as fread:
+    artifact = pickle.load(fread)
     assert isinstance(artifact, Artifact), 'Loaded object type invalid'
     return artifact

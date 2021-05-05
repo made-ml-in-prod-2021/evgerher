@@ -70,7 +70,6 @@ def parse_args():
                                 default=False,
                                 action='store_true',
                                 help='Whether to return probabilities or not')
-  # todo: do I need an initial yaml file to handle an order of features when dealing with pandas?
   inference_parser.set_defaults(callback=inference_callback)
   return parser.parse_args()
 

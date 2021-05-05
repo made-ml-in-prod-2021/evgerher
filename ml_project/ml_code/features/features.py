@@ -69,7 +69,7 @@ def build_pipeline(feature_config: FeatureConfig) -> Pipeline:
     [
       (
         'column_transformer',
-       column_transformer
+        column_transformer
       ),
       (
         'normalization',

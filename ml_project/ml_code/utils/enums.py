@@ -20,4 +20,3 @@ class ModelType(Enum):
   RANDOM_FOREST = 'random_forest'
   SVC = 'svc'
   MLP_CLASSIFIER = 'mlp_classifier'
-

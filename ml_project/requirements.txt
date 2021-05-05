@@ -10,3 +10,4 @@ marshmallow_enum==1.5.1
 typeguard==2.12.0
 pytest-cov>=2.11.0
 pytest>=5.4.0
+pylint

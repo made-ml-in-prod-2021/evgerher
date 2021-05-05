@@ -1,5 +1,11 @@
 from sklearn.base import TransformerMixin, BaseEstimator
-from sklearn.preprocessing import OneHotEncoder, MinMaxScaler, StandardScaler, FunctionTransformer, OrdinalEncoder
+from sklearn.preprocessing import (
+  OneHotEncoder,
+  MinMaxScaler,
+  StandardScaler,
+  FunctionTransformer,
+  OrdinalEncoder
+)
 import pandas as pd
 
 from ml_code.utils import CategoricalPolicy, NormalizationPolicy
@@ -59,5 +65,4 @@ def resolve_normalization_policy(policy: NormalizationPolicy) -> TransformerMixi
     return StandardScaler()
   elif policy is NormalizationPolicy.NONE:
     return FunctionTransformer(identity_mapping)
-  else:
-    raise NotImplementedError("Unknown normalization policy", policy)
+  raise NotImplementedError("Unknown normalization policy", policy)
