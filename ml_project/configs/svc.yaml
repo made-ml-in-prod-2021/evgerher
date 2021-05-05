@@ -2,7 +2,6 @@ data_path: "data/heart.csv"
 split_config:
   test_ratio: 0.05
   random_state: 21256
-  folds: 5
 model_config:
   model_type: "SVC"
   model_args:
