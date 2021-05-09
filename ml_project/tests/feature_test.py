@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from ml_code.features.features import build_column_transformer, build_categorical_pipeline
 from ml_code.features.resolvers import FrequencyEncoder
 from ml_code.utils import FeatureConfig, CategoricalPolicy, NormalizationPolicy
-from .utils import sample_data
+from .conftest import sample_data
 
 
 def test_column_transformer(sample_data):

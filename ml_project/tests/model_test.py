@@ -5,7 +5,7 @@ from ml_code.features import build_pipeline
 from ml_code.models import dump_artifact, load_artifact, Artifact
 from ml_code.models.train_model import create_artifact, create_model
 
-from .utils import simple_feature_config, simple_model_config
+from .conftest import simple_feature_config, simple_model_config
 
 
 def test_load_dump_valid(simple_feature_config, simple_model_config, tmpdir):

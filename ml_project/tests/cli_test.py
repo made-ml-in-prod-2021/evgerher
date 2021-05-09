@@ -10,7 +10,7 @@ from ml_code.models import Artifact
 from ml_code.runner import train_callback, inference_callback
 from ml_code.utils import setup_logger
 
-from .utils import temp_model
+from .conftest import temp_model, INFERENCE_DATA_PATH
 
 setup_logger()
 
@@ -57,12 +57,11 @@ def test_train_cli(tmpdir, caplog):
 )
 def test_inference_cli(proba, tmpdir, temp_model):
   model_path = str(temp_model)
-  data_path = 'data/inference.csv'
   output_path = tmpdir.join('predictions.csv')
 
   namespace = Namespace(
     model_path=model_path,
-    data_path=data_path,
+    data_path=INFERENCE_DATA_PATH,
     proba=proba,
     output_path=output_path
   )
@@ -70,7 +69,7 @@ def test_inference_cli(proba, tmpdir, temp_model):
 
   assert os.path.isfile(output_path)
 
-  initial_data = pd.read_csv(data_path)
+  initial_data = pd.read_csv(INFERENCE_DATA_PATH)
   loaded_output: pd.Series = pd.read_csv(output_path, names=['target'])['target'] # a single column named 0
   dtype = loaded_output.dtype
 

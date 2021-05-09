@@ -3,8 +3,7 @@ import logging
 
 import pandas as pd
 
-from ml_code.data import read_data
-from ml_code.data.make_dataset import write_results
+from ml_code.data import read_data, write_results
 from ml_code.models import inference_model, train_model, Artifact, dump_artifact, load_artifact
 from ml_code.utils import setup_logger, PipelineConfig
 

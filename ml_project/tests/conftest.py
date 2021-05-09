@@ -8,6 +8,9 @@ from ml_code.runner import train_callback
 from ml_code.utils import ModelConfig, ModelType, FeatureConfig, CategoricalPolicy, NormalizationPolicy
 
 
+INFERENCE_DATA_PATH = 'data/inference.csv'
+INVALID_YAML_PATH = 'tests/resources/invalid_intersection.yaml'
+
 @pytest.fixture
 def temp_model(tmpdir):
   output_path = tmpdir.join('artifact.pkl')
