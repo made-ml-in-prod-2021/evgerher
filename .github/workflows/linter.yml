@@ -1,0 +1,26 @@
+name: Linter
+
+on:
+  push:
+    branches: [ master, homework1, homework2 ]
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        cd ml_project
+        pip install -r requirements.txt
+    - name: Run linter
+      run: |
+        pip install pylint
+        cd ml_project
+        pylint --rcfile linter.rc ml_code/ --exit-zero

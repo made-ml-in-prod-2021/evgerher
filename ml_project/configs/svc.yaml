@@ -1,0 +1,30 @@
+data_path: "data/heart.csv"
+split_config:
+  test_ratio: 0.05
+  random_state: 21256
+model_config:
+  model_type: "SVC"
+  model_args:
+    kernel: "sigmoid"
+    probability: true
+    C: 5.0
+    random_state: 2008
+feature_config:
+  categorical_columns:
+    - "sex"
+    - "cp"
+    - "fbs"
+    - "restecg"
+    - "exang"
+    - "slope"
+    - "ca"
+    - "thal"
+  numeric_columns:
+    - "oldpeak"
+    - "chol"
+    - "thalach"
+    - "age"
+    - "trestbps"
+  categorical_policy: "ONE_HOT"
+  normalization_policy: "STANDARD"
+  target_column: "target"
