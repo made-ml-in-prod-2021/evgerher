@@ -89,8 +89,8 @@ class NumericFeature(Feature):
 
 @dataclass
 class FeatureRestrictions:
-  categorical_columns: List[CategoricalFeature]
-  numeric_columns: List[NumericFeature]
+  categorical_columns: Dict[str, CategoricalFeature]
+  numeric_columns: Dict[str, NumericFeature]
 
   @classmethod
   def load_yaml(cls, path: str) -> 'FeatureRestrictions':
