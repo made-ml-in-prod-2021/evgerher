@@ -1,0 +1,5 @@
+flask==1.1.2
+scikit-learn==0.23.1
+marshmallow-dataclass==8.4.1
+marshmallow_enum==1.5.1
+typeguard==2.12.0
