@@ -49,7 +49,7 @@ def validate_request(req: InferenceRequest):
   features = restrictions.categorical_columns
   features.update(restrictions.numeric_columns)
 
-  if len(req.values) != len(req.columns) != len(features):
+  if len(req.values) != len(req.columns) or len(req.values) != len(features):
     msg = f'Invalid number of features: expected {len(features)}, found: {len(req.values)}'
     logger.error(msg)
     raise FeatureException(msg)
