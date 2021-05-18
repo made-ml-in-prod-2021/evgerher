@@ -39,17 +39,17 @@ def handle_bad_request(e: FeatureException):
 
 
 def predict(req: InferenceRequest) -> Tuple[bool, float]:
-  X = pd.DataFrame(req.values, columns=req.columns)
+  X = pd.DataFrame([req.values], columns=req.columns)
   X_piped = artifact.pipeline.transform(X)
-  pred = artifact.model.predict_proba(X_piped)
-  return pred > 0.5, pred
+  pred = artifact.model.predict_proba(X_piped)[0, 1]
+  return bool(pred > 0.5), float(pred)
 
 
 def validate_request(req: InferenceRequest):
   features = restrictions.categorical_columns
   features.update(restrictions.numeric_columns)
 
-  if len(req.values) != len(features):
+  if len(req.values) != len(req.columns) != len(features):
     msg = f'Invalid number of features: expected {len(features)}, found: {len(req.values)}'
     logger.error(msg)
     raise FeatureException(msg)
