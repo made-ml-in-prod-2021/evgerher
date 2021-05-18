@@ -1,39 +1,38 @@
-columns:
-  - categorical_columns:
-      - sex:
-          values: [0, 1]
-      - cp:
-          values: [0, 1, 2, 3]
-      - fbs:
-          values: [0, 1]
-      - restecg:
-          values: [0, 1, 2]
-      - exang:
-          values: [0, 1]
-      - slope:
-          values: [0, 1, 2]
-      - ca:
-          values: [0, 1, 2, 3, 4]
-      - thal:
-          values: [0, 1, 2, 3]
-  - numeric_columns:
-      - oldpeak:
-          type: float
-          min: 0.0
-          max: 10.0
-      - trestbps:
-          type: float
-          min: 50.0
-          max: 250.0
-      - age:
-          type: int
-          min: 1
-          max: 100 # a place for a joke
-      - thalach:
-          type: int
-          min: 50
-          max: 250
-      - chol:
-          type: int
-          min: 100
-          max: 700
+categorical_columns:
+  sex:
+    values: [0, 1]
+  cp:
+    values: [0, 1, 2, 3]
+  fbs:
+    values: [0, 1]
+  restecg:
+    values: [0, 1, 2]
+  exang:
+    values: [0, 1]
+  slope:
+    values: [0, 1, 2]
+  ca:
+    values: [0, 1, 2, 3, 4]
+  thal:
+    values: [0, 1, 2, 3]
+numeric_columns:
+  oldpeak:
+    type: float
+    min: 0.0
+    max: 10.0
+  trestbps:
+    type: float
+    min: 50.0
+    max: 250.0
+  age:
+    type: int
+    min: 1
+    max: 100 # a place for a joke
+  thalach:
+    type: int
+    min: 50
+    max: 250
+  chol:
+    type: int
+    min: 100
+    max: 700

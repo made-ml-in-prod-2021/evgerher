@@ -1,6 +1,5 @@
-from inference.logger import setup_logger
-from inference.server import app
-
+from ml_code.server import app
+from ml_code.utils import setup_logger
 
 if __name__ == '__main__':
   setup_logger()

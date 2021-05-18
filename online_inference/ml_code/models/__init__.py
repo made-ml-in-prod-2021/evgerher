@@ -1,42 +1,16 @@
-import pickle
 from dataclasses import dataclass
 from typing import Optional, Dict, Union, List, Set
 from abc import ABC, abstractmethod
-import logging
-
 import yaml
 from marshmallow_dataclass import class_schema
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.neural_network import MLPClassifier
-from sklearn.pipeline import Pipeline
-from sklearn.svm import SVC
 
-
-logger = logging.getLogger('inference')
-
-
-SklearnClassificationModel = Union[RandomForestClassifier, MLPClassifier, SVC]
+from .io_utils import logger, Artifact
 
 
 class FeatureException(RuntimeError):
   def __init__(self, message):
     super().__init__(message)
     self.message = message
-
-
-@dataclass
-class Artifact:
-  model: SklearnClassificationModel
-  pipeline: Pipeline
-  stats: Optional[Dict[str, float]]
-
-  @classmethod
-  def load_artifact(cls, path: str) -> 'Artifact':
-    logger.info('Loading artifact from %s', path)
-    with open(path, 'rb') as fread:
-      artifact = pickle.load(fread)
-      assert isinstance(artifact, Artifact), 'Loaded object type invalid'
-      return artifact
 
 
 @dataclass
