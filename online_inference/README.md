@@ -13,8 +13,13 @@
 
 ## API
 
+Make an inference request via curl or python script (`requests` package is required)
 Default port is 5050  
-`curl -X POST -H "Content-Type: application/json" -d @resources/request.json localhost:5050/predict`  
+
+- `curl -X POST -H "Content-Type: application/json" -d @resources/request.json localhost:5050/predict` 
+- `python knocker.py` 
+
+## Tests
 
 
 
