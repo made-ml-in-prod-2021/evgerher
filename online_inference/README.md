@@ -9,6 +9,7 @@
 - Build `docker build -t evgerher/ml-in-prod-inference:0.0.1 .`  
   - The feature config is hardcoded `configs/health_features.yaml`  
   - The artifact path is hardcoded `artifact.pkl`  
+- Pull image `docker pull evgerher/ml-in-prod-inference:0.0.1`
 - Run `docker run -it -d -p 5050:5050 evgerher/ml-in-prod-inference:0.0.1`  
 
 ## API
@@ -22,4 +23,5 @@ Default port is 5050
 ## Tests
 
 
+`python -m pytest`  
 
