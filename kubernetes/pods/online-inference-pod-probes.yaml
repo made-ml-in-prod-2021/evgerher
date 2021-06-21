@@ -12,11 +12,11 @@ spec:
         - containerPort: 5050
       resources:
         requests:
-          memory: "4Gi"
-          cpu: "256m"
+          memory: "1Gi"
+          cpu: "250m"
         limits:
-          memory: "8Gi"
-          cpu: "512m"
+          memory: "2Gi"
+          cpu: "500m"
       readinessProbe:
         httpGet:
           path: /ready
