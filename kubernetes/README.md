@@ -21,7 +21,7 @@ Readiness/liveness once per 3 sec, delay 10 sec.
 
 ![task3](./imgs/task3.png)  
 
-4) Создайте replicaset
+4) (+3, но не факт - может я напартачил) Создайте replicaset
 
 Обнволение версии 0.0.2 -> v2 
 
@@ -34,3 +34,5 @@ Downscale 3 -> 5
 
 - Остались работать старые версии (даже в доп репликах)
 ![task4-2](./imgs/task4-upscale-sleep.png) 
+  
+5) (+0 баллов) SKIPPED
