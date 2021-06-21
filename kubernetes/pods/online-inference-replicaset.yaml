@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: online-inference-replica
+  labels:
+    app: online-inference-replica
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: online-inference-replica
+  template:
+    metadata:
+      name: online-inference-replica
+      labels:
+        app: online-inference-replica
+    spec:
+      containers:
+        - image: evgerher/ml-in-prod-inference:0.0.2
+          name: online-inference
+          ports:
+            - containerPort: 5050
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 5050
+            initialDelaySeconds: 10
+            periodSeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5050
+            initialDelaySeconds: 20
+            periodSeconds: 3
