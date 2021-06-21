@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: online-inference2
+  labels:
+    app: online-inference2
+spec:
+  containers:
+    - image: evgerher/ml-in-prod-inference:v2
+      name: online-inference2
+      ports:
+        - containerPort: 5050
+      resources:
+        requests:
+          memory: "4Gi"
+          cpu: "256m"
+        limits:
+          memory: "8Gi"
+          cpu: "512m"
+      readinessProbe:
+        httpGet:
+          path: /ready
+          port: 5050
+        initialDelaySeconds: 10
+        periodSeconds: 3
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: 5050
+        initialDelaySeconds: 40
+        periodSeconds: 3
