@@ -33,6 +33,11 @@ def endpoint_predict():
 def endpoint_health():
   return 'OK', 200
 
+
+@app.route('/ready', methods=['GET'])
+def endpoint_ready():
+  return 'OK', 200
+
 @app.errorhandler(FeatureException)
 def handle_bad_request(e: FeatureException):
   return e.message, 400
